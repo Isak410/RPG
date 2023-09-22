@@ -1,7 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://basiv7vf2l81v"]
+[gd_scene load_steps=56 format=3 uid="uid://basiv7vf2l81v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ibt0v"]
 [ext_resource type="Texture2D" uid="uid://bcsg1v2fxjhn0" path="res://art/characters/player.png" id="1_y4stv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5p6t4"]
+radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i66rf"]
 atlas = ExtResource("1_y4stv")
@@ -414,11 +417,15 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_ibt0v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(39, -2.57)
+shape = SubResource("CircleShape2D_5p6t4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, 24)
+position = Vector2(37, -2)
 sprite_frames = SubResource("SpriteFrames_f2okh")
 animation = &"death"
+offset = Vector2(0, -14.89)
