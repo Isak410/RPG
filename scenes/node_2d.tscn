@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://u6of37aem5d2"]
+[gd_scene load_steps=10 format=3 uid="uid://u6of37aem5d2"]
 
 [ext_resource type="Texture2D" uid="uid://b7xyjvu5diyg0" path="res://art/tilesets/plains.png" id="1_nt774"]
 [ext_resource type="Texture2D" uid="uid://7begmfjya44r" path="res://art/tilesets/grass.png" id="2_8srn8"]
 [ext_resource type="PackedScene" uid="uid://basiv7vf2l81v" path="res://scenes/player.tscn" id="4_iyv47"]
+[ext_resource type="PackedScene" uid="uid://bxyvtolk6mxv1" path="res://scenes/enemy.tscn" id="5_iey2b"]
 [ext_resource type="Texture2D" uid="uid://dpi6ra28m178b" path="res://art/objects/objects.png" id="6_gmtln"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jxl3"]
@@ -170,4 +171,9 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(6, 655365, 7, 8, 655365, 7, 262157, 655365, 7, 458768, 655365, 7, 393222, 655365, 7, 393217, 655365, 7, 458778, 655365, 7, 655384, 655365, 7, 851980, 655365, 7, 720919, 5, 5, 393219, 5, 5, 720901, 5, 5, 196624, 5, 5, 65556, 5, 5, 10, 5, 5, 786447, 524293, 6, 393229, 524293, 6, 24, 524293, 6, 589851, 524293, 6, 851977, 5, 1, 524309, 5, 1, 524311, 5, 1, 196620, 5, 1, 5, 5, 1, 524290, 5, 1, 655361, 5, 1, 786434, 5, 1, 15, 5, 1, 786459, 5, 1, 589838, 5, 0, 393231, 327685, 0, 12, 327685, 0, 786432, 327685, 0)
 
-[node name="player" parent="." instance=ExtResource("4_iyv47")]
+[node name="player" parent="TileMap" instance=ExtResource("4_iyv47")]
+position = Vector2(28, 42)
+
+[node name="enemy" parent="TileMap" instance=ExtResource("5_iey2b")]
+position = Vector2(175, 130)
+scale = Vector2(0.899652, 0.915432)

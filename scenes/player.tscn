@@ -418,14 +418,17 @@ animations = [{
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
+position = Vector2(0, 1)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ibt0v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(39, -2.57)
+position = Vector2(0, -2.57)
 shape = SubResource("CircleShape2D_5p6t4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(37, -2)
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_f2okh")
 animation = &"death"
-offset = Vector2(0, -14.89)
+offset = Vector2(-1.36, -14.89)
