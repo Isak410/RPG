@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://basiv7vf2l81v"]
+[gd_scene load_steps=57 format=3 uid="uid://basiv7vf2l81v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ibt0v"]
 [ext_resource type="Texture2D" uid="uid://bcsg1v2fxjhn0" path="res://art/characters/player.png" id="1_y4stv"]
@@ -69,6 +69,10 @@ region = Rect2(192, 240, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6d5l"]
 atlas = ExtResource("1_y4stv")
 region = Rect2(240, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vx4o"]
+atlas = ExtResource("1_y4stv")
+region = Rect2(48, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvuhn"]
 atlas = ExtResource("1_y4stv")
@@ -277,6 +281,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3vx4o")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vvuhn")
 }, {
 "duration": 1.0,
@@ -430,5 +442,7 @@ shape = SubResource("CircleShape2D_5p6t4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_f2okh")
-animation = &"death"
+animation = &"crouch"
 offset = Vector2(-1.36, -14.89)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
