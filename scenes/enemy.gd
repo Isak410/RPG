@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 50
+var speed = 75
 var player_chase = false
 var player = null
 
@@ -60,6 +60,7 @@ func deal_with_damage():
 			if health <= 0:
 				self.queue_free()
 				Global.respawn_enemy()
+				print(Global.get_children())
 
 
 func _on_take_damage_cooldown_timeout():
