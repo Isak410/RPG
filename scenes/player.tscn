@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://basiv7vf2l81v"]
+[gd_scene load_steps=58 format=3 uid="uid://basiv7vf2l81v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ibt0v"]
 [ext_resource type="Texture2D" uid="uid://bcsg1v2fxjhn0" path="res://art/characters/player.png" id="1_y4stv"]
@@ -428,6 +428,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_okp0f"]
+
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(0, 1)
@@ -446,3 +448,21 @@ animation = &"crouch"
 offset = Vector2(-1.36, -14.89)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(0, -5)
+scale = Vector2(1.41159, 1.34361)
+shape = SubResource("CircleShape2D_okp0f")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
