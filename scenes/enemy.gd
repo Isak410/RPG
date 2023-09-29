@@ -13,6 +13,7 @@ func _ready():
 
 func _physics_process(delta):
 	deal_with_damage()
+	update_health()
 	
 	if player_chase:
 		position += (player.position - position)/speed
@@ -58,10 +59,20 @@ func deal_with_damage():
 			can_take_damage = false
 			print("slime_health = ", health)
 			if health <= 0:
+#				var pos = $"../Marker2D".position
+#				var test 
 				self.queue_free()
-				Global.respawn_enemy()
-				print(Global.get_children())
+				#Global.respawn_enemy(pos)
+#				print(Global.get_children())
 
 
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true
+	
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true

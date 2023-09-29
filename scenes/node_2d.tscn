@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://u6of37aem5d2"]
+[gd_scene load_steps=11 format=3 uid="uid://u6of37aem5d2"]
 
 [ext_resource type="Texture2D" uid="uid://b7xyjvu5diyg0" path="res://art/tilesets/plains.png" id="1_nt774"]
+[ext_resource type="Script" path="res://scenes/node_2d.gd" id="1_qm7wi"]
 [ext_resource type="Texture2D" uid="uid://7begmfjya44r" path="res://art/tilesets/grass.png" id="2_8srn8"]
 [ext_resource type="PackedScene" uid="uid://basiv7vf2l81v" path="res://scenes/player.tscn" id="4_iyv47"]
 [ext_resource type="PackedScene" uid="uid://bxyvtolk6mxv1" path="res://scenes/enemy.tscn" id="5_iey2b"]
@@ -149,6 +150,7 @@ sources/5 = SubResource("TileSetAtlasSource_xes5c")
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_qm7wi")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -177,3 +179,17 @@ position = Vector2(28, 42)
 [node name="enemy" parent="TileMap" instance=ExtResource("5_iey2b")]
 position = Vector2(175, 130)
 scale = Vector2(0.899652, 0.915432)
+
+[node name="Node" type="Node" parent="TileMap"]
+
+[node name="spawnpos1" type="Marker2D" parent="TileMap/Node"]
+position = Vector2(349, 95)
+
+[node name="spawnpos2" type="Marker2D" parent="TileMap/Node"]
+
+[node name="spawnpos3" type="Marker2D" parent="TileMap/Node"]
+
+[node name="enemyrespawntimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="timeout" from="enemyrespawntimer" to="." method="_on_enemyrespawntimer_timeout"]
