@@ -186,10 +186,12 @@ scale = Vector2(0.899652, 0.915432)
 position = Vector2(349, 95)
 
 [node name="spawnpos2" type="Marker2D" parent="TileMap/Node"]
+position = Vector2(73, 145)
 
 [node name="spawnpos3" type="Marker2D" parent="TileMap/Node"]
+position = Vector2(204, 27)
 
 [node name="enemyrespawntimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 0.001
 
 [connection signal="timeout" from="enemyrespawntimer" to="." method="_on_enemyrespawntimer_timeout"]
